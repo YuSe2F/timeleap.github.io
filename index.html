@@ -9,10 +9,13 @@
         <source src="got.mp3" >
     </audio>
     <script>
-        const playSong = () => {
-            document.getElementById("song").play();
-        };
-        window.addEventListener('touchmove', playSong);
+        document.addEventListener('DOMContentLoaded', () => {
+            const playSong = () => {
+                document.getElementById("song").play();
+                window.removeEventListener('touchmove', playSong);  // Remove event listener once song starts playing
+            };
+            window.addEventListener('touchmove', playSong);
+        });
     </script>
     <title>TimeLeap</title>
 </head>
